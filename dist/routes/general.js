@@ -24,9 +24,9 @@ const schedule_1 = __importDefault(require("../controllers/get/schedule"));
 const cancelappointment_1 = require("../controllers/update/cancelappointment");
 const rescheduleappointment_1 = require("../controllers/update/rescheduleappointment");
 const get_doctor_appointments_1 = __importDefault(require("../controllers/get/get-doctor-appointments"));
-const consultationcontroller_1 = __importDefault(require("@/controllers/get/consultationcontroller"));
+const consultationcontroller_1 = __importDefault(require("../controllers/get/consultationcontroller"));
 const appointment_2 = __importDefault(require("../controllers/update/appointment"));
-const patient_consultation_notes_controller_1 = __importDefault(require("@/controllers/get/patient-consultation-notes.controller"));
+const patient_consultation_notes_controller_1 = __importDefault(require("../controllers/get/patient-consultation-notes.controller"));
 // @ts-ignore
 const NODE_ENV = process.env.NODE_ENV === "production" ? "production" : "development";
 const router = express_1.default.Router();

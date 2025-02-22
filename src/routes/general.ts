@@ -19,9 +19,9 @@ import scheduleAppointment from "../controllers/get/schedule";
 import { cancelAppointment } from "../controllers/update/cancelappointment";
 import { rescheduleAppointment } from "../controllers/update/rescheduleappointment";
 import doctorController from '../controllers/get/get-doctor-appointments';
-import consultationNotesController from "@/controllers/get/consultationcontroller";
+import consultationNotesController from "../controllers/get/consultationcontroller";
 import updateAppointment from "../controllers/update/appointment";
-import patientConsultationController from "@/controllers/get/patient-consultation-notes.controller";
+import patientConsultationController from "../controllers/get/patient-consultation-notes.controller";
 // @ts-ignore
 const NODE_ENV = process.env.NODE_ENV === "production" ? "production" : "development";
 

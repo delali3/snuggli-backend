@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "ES6",
+    "module": "CommonJS",
     "rootDir": "src",
     "outDir": "dist",
     "esModuleInterop": true,
@@ -14,5 +14,6 @@
       "@/shared/*": ["shared/*"]
     }
   },
-  "include": ["./src/**/*" , "./shared/**/*"]
+  "include": ["./src/**/*", "./shared/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
