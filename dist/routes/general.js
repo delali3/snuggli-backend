@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // routes/general.ts
 const register_1 = __importDefault(require("../controllers/post/register"));
 const express_1 = __importDefault(require("express"));
+require("../strategies/local");
 const login_1 = __importDefault(require("../controllers/post/login"));
 const profile_1 = __importDefault(require("../controllers/get/profile"));
 const auth_middleware_1 = require("../middleware/auth.middleware");

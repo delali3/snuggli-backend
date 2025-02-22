@@ -6,11 +6,13 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {
+ "scripts": {
   "build": "tsc",
+  "prestart": "npm run build",
   "start": "node --require tsconfig-paths/register dist/index.js",
   "dev": "cross-env NODE_ENV=development nodemon --exec ts-node -r tsconfig-paths/register src/index.ts"
-},
+}
+,
   "dependencies": {
     "@supabase/supabase-js": "^2.47.7",
     "@types/jsonwebtoken": "^9.0.7",

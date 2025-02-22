@@ -1,5 +1,4 @@
 import { supabase } from "../../db/db_config";
-import { z } from "zod";
 
 
 interface AuthRequest extends Request {

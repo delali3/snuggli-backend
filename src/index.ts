@@ -9,7 +9,6 @@ import admin from "./routes/admin";
 import general from "./routes/general";
 import cors from 'cors';
 
-
 dotenv.config();
 
 const app = express();
@@ -30,26 +29,18 @@ const startServer = async () => {
 
     // CORS Configuration
     const allowedOrigins = [
-      process.env.FRONTEND_URL_DEV,
-      process.env.FRONTEND_URL_PROD,
-    ].filter(Boolean);
-    
-    console.log("Allowed origins:", allowedOrigins);
+      "https://snuggli-2-orchidhelpdesk.replit.app",
+      process.env.FRONTEND_URL,
+    ];
 
     app.use(cors({
-      origin: function(origin, callback) {
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin) return callback(null, true);
-        
-        if (allowedOrigins.indexOf(origin) === -1) {
-          const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-          return callback(new Error(msg), false);
+      origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+          return callback(null, true);
         }
-        return callback(null, true);
+        return callback(new Error("CORS policy does not allow this origin"), false);
       },
-      credentials: true,
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
+      credentials: true
     }));
 
     // Session configuration
@@ -72,12 +63,9 @@ const startServer = async () => {
     app.use(passport.session());
 
     // Routes
-    app.use("/", general);
-    app.use("/admin", admin);
-    app.get("/", (req, res) => {
-      res.json({ message: "Welcome to the Snuggli API" });
-    }
-    );
+    app.use("/api", general);
+    app.use("/admin/api", admin);
+
     // Error handling middleware
     app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
       console.error(err.stack);

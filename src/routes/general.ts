@@ -1,6 +1,8 @@
 // routes/general.ts
 import register from "../controllers/post/register";
 import express from "express";
+import passport from "passport";
+import "../strategies/local";
 import login from "../controllers/post/login";
 import getProfile from "../controllers/get/profile";
 import { authMiddleware } from "../middleware/auth.middleware";

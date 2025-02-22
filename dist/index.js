@@ -40,24 +40,17 @@ const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
         app.use((0, cookie_parser_1.default)());
         // CORS Configuration
         const allowedOrigins = [
-            process.env.FRONTEND_URL_DEV,
-            process.env.FRONTEND_URL_PROD,
-        ].filter(Boolean);
-        console.log("Allowed origins:", allowedOrigins);
+            "https://snuggli-2-orchidhelpdesk.replit.app",
+            process.env.FRONTEND_URL,
+        ];
         app.use((0, cors_1.default)({
             origin: function (origin, callback) {
-                // Allow requests with no origin (like mobile apps or curl requests)
-                if (!origin)
+                if (!origin || allowedOrigins.includes(origin)) {
                     return callback(null, true);
-                if (allowedOrigins.indexOf(origin) === -1) {
-                    const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-                    return callback(new Error(msg), false);
                 }
-                return callback(null, true);
+                return callback(new Error("CORS policy does not allow this origin"), false);
             },
-            credentials: true,
-            methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-            allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
+            credentials: true
         }));
         // Session configuration
         app.use((0, express_session_1.default)({
@@ -75,11 +68,8 @@ const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
         app.use(passport_1.default.initialize());
         app.use(passport_1.default.session());
         // Routes
-        app.use("/", general_1.default);
-        app.use("/admin", admin_1.default);
-        app.get("/", (req, res) => {
-            res.json({ message: "Welcome to the Snuggli API" });
-        });
+        app.use("/api", general_1.default);
+        app.use("/admin/api", admin_1.default);
         // Error handling middleware
         app.use((err, req, res, next) => {
             console.error(err.stack);
