@@ -1,0 +1,61 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=production ts-node -r tsconfig-paths/register src/index.ts",
+    "dev": "cross-env NODE_ENV=development nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.47.7",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/multer": "^1.4.12",
+    "bcryptjs": "^2.4.3",
+    "connect-redis": "^8.0.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "crypto": "^1.0.1",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.469.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.4",
+    "openai": "^4.77.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "redis": "^4.7.0",
+    "sqlstring": "^2.3.3",
+    "tsconfig-paths": "^4.2.0",
+    "uuid": "^11.0.3",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/express-mysql-session": "^3.0.6",
+    "@types/express-session": "^1.18.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.9.1",
+    "@types/passport": "^1.0.17",
+    "@types/passport-local": "^1.0.38",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
